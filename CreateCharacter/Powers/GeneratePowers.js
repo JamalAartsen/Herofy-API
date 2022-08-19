@@ -11,7 +11,6 @@ export default function generatePowers(min, max) {
         sumLevels = powerLevels.map(l => l.level).reduce((a, b) => a + b)
     }
 
-    powerLevels.forEach(power => power.log())
     return powerLevels
 }
 

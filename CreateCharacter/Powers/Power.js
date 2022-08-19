@@ -5,11 +5,6 @@ export default class Power {
     }
 
     generateLevel() {
-        let level = Math.floor(Math.random() * 7) + 1
-        return level
-    }
-
-    log() {
-        console.log("Name: " + this.name + " Level: " + this.level)
+        return Math.floor(Math.random() * 7) + 1
     }
 }
