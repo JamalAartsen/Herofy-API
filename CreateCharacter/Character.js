@@ -1,7 +1,8 @@
 export default class Character {
-    constructor(name, typeBeing, avgPowerLevel, PowerLevels, story) {
+    constructor(name, being, type, avgPowerLevel, PowerLevels, story) {
         this.name = name
-        this.typeBeing = typeBeing
+        this.being = being
+        this.type = type
         this.avgPowerLevel = avgPowerLevel
         this.PowerLevels = PowerLevels
         this.story = story
