@@ -11,19 +11,15 @@ app.get("/", (req, res) => {
 })
 
 app.post("/createCharacter", (req, res) => {
-
-    // TODO: Is for postman maybe this needs to be done for website. Testing later...
-    let minPowerLevel = parseInt(req.body.minPowerLevel)
-    let maxPowerLevel = parseInt(req.body.maxPowerLevel)
+    let avgPowerLevel = parseInt(req.body.avgPowerLevel)
 
     res.json({
         "Character": createCharacter(
             req.body.name,
             req.body.typeBeing,
             req.body.alias,
-            req.body.isHero,
-            minPowerLevel,
-            maxPowerLevel
+            avgPowerLevel,
+            req.body.isHero
         )
     })
 })
