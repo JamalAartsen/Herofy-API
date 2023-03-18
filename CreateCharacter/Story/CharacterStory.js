@@ -1,10 +1,5 @@
-import heroStory from "./HeroStory.js"
-import villianStory from "./VillianStory.js"
+import story from "./ChatGPT.js"
 
-export default function generateStory(name, isHero) {
-    if (isHero) {
-        return heroStory(name)
-    } else {
-        return villianStory(name)
-    }
+export default async function generateStory(name, isHero, alias, typeBeing) {
+    return await story(name, isHero, alias, typeBeing)
 }
