@@ -7,7 +7,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-// TODO: - Add powers
+// TODO: - Add powers.
 export default async function story(name, isHero, alias, typeBeing) {
     let type = isHero ? "Hero" : "Villian"
 
