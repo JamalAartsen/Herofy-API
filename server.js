@@ -14,19 +14,24 @@ app.get("/", (req, res) => {
 app.post("/createCharacter", async (req, res) => {
     let avgPowerLevel = parseInt(req.body.avgPowerLevel)
 
-    createCharacter(
-        req.body.name,
-        req.body.typeBeing,
-        req.body.alias,
-        avgPowerLevel,
-        req.body.isHero,
-        req.body.powers,
-        req.body.weaknesses
-    ).then((character) => {
-        res.json({
-            "Character": character
+
+    try {
+        createCharacter(
+            req.body.name,
+            req.body.typeBeing,
+            req.body.alias,
+            avgPowerLevel,
+            req.body.isHero,
+            req.body.powers,
+            req.body.weaknesses
+        ).then((character) => {
+            res.json({
+                "Character": character
+            })
         })
-    })
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 const PORT = process.env.PORT || 3000
