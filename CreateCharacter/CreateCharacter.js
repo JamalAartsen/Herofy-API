@@ -4,9 +4,9 @@ import Character from "./Character.js"
 import type from "./TypeOfCharacter.js"
 
 // TODO: Add weaknesses
-export default async function createCharacter(name, being, alias, avgPowerLevel, isHero) {
-    const powers = generatePowers(avgPowerLevel)
+export default async function createCharacter(name, being, alias, avgPowerLevel, isHero, powers, weaknesses) {
+    let generatedPowers = generatePowers(avgPowerLevel)
     let story = await generateStory(name, isHero, alias, being)
 
-    return new Character(name, being, type(isHero), alias, avgPowerLevel, powers, story)
+    return new Character(name, being, type(isHero), alias, avgPowerLevel, generatedPowers, story)
 }

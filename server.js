@@ -19,7 +19,9 @@ app.post("/createCharacter", async (req, res) => {
         req.body.typeBeing,
         req.body.alias,
         avgPowerLevel,
-        req.body.isHero
+        req.body.isHero,
+        req.body.powers,
+        req.body.weaknesses
     ).then((character) => {
         res.json({
             "Character": character
