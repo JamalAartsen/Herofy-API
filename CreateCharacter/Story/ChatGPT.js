@@ -8,11 +8,11 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 // TODO: - Add powers
-export default async function story(name, isHero, alias, typeBeing, powers, weaknesses) {
+export default async function story(name, isHero, alias, typeBeing) {
 
     let response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: createQuestion(name, isHero, alias, typeBeing, powers, weaknesses),
+        prompt: createQuestion(name, isHero, alias, typeBeing),
         temperature: 0.9,
         max_tokens: 250,
         top_p: 1,
@@ -24,14 +24,12 @@ export default async function story(name, isHero, alias, typeBeing, powers, weak
     return response.data.choices[0].text
 }
 
-function createQuestion(name, isHero, alias, typeBeing, powers, weaknesses) {
+function createQuestion(name, isHero, alias, typeBeing) {
     let type = isHero ? "Hero" : "Villian"
     let namePhrase = "The name is" + name + ". "
     let aliasPhrase = "The alias of " + name + " is " + alias + ". "
     let typeBeingPhrase = name + " is a " + typeBeing + "."
-    let powersPhrase = "The powers of " + name + " are " + powers + ". "
-    let weaknessesPhrase = "The weaknesses of " + name + " are " + weaknesses + ". "
     let limitPhrase = "The story should not exceed 200 words."
 
-    return "Create origin story about a " + type + namePhrase + aliasPhrase + typeBeingPhrase + powersPhrase + weaknessesPhrase + limitPhrase
+    return "Create origin story about a " + type + namePhrase + aliasPhrase + typeBeingPhrase + limitPhrase
 }
